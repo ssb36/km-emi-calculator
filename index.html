@@ -7,36 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    #MainDiv {
-        margin:auto;
-        width: 200px;
-        height: 200px;
-        border: 1px solid red;
-    }
-    #inputAmount{
-        text-align: center;
-        width: 95%;
-        margin-top: 8%;
-    }
-    #inputRate{
-        text-align: center;
-        width: 95%;
-        margin-top: 8%;
-    }
-    #buttonSubmit{
-        
-        text-align: center;
-        margin: 25%;
-        margin-top: 12%;
-    }
+        #MainDiv {
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        #inputAmount {
+            text-align: center;
+            width: 95%;
+            height: 36px;
+            margin-top: 8%;
+        }
+
+        #inputRate {
+            text-align: center;
+            width: 95%;
+            height: 36px;
+            margin-top: 8%;
+        }
+
+        #buttonSubmit {
+
+            text-align: center;
+            margin: 35%;
+            height: 36px;
+            margin-top: 12%;
+        }
     </style>
 </head>
 
 <body>
     <div id="MainDiv">
-    <input id="inputAmount" type="number" placeholder="Enter Amount"/><br>
-    <input id= "inputRate" type="number" placeholder="Enter Interest"><br>
-    <button id="buttonSubmit" type="submit" onclick="showData();" >Calculate</button>
+        <input id="inputAmount" type="number" placeholder="Enter Amount" /><br>
+        <input id="inputRate" type="number" placeholder="Enter Interest"><br>
+        <button id="buttonSubmit" type="submit" onclick="showData()">Calculate</button>
     </div>
 
 </body>
@@ -45,8 +51,31 @@
 
 <script>
 
-function showData() {
-    console.log("clicked")
-}
+
+
+    function showData() {
+        let amount = document.getElementById('inputAmount').value;
+        let rate = document.getElementById('inputRate').value;
+
+
+        let start = 3;
+        let end = 8;
+        for (let i = start; i < end; i++) {
+            let r = rate / 1200;
+
+            let r1 = (r + 1) ** (i * 12);
+            let emi = ((r + (r / (r1 - 1))) * amount);
+            console.log(Number(emi).toFixed(2));
+        }
+    }
 
 </script>
+
+<!-- 
+double amount = Integer.parseInt(amountET.getText().toString());
+double rate = Float.parseFloat(interestPerET.getText().toString());
+double Months = Integer.parseInt(monthsET.getText().toString());
+double r = rate/1200;
+double r1 = Math.pow(r+1,Months);
+
+double EMI = (double) ((r+(r/(r1-1)))* amount);
