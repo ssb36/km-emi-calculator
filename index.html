@@ -6,12 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    #MainDiv {
+        margin:auto;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+    }
+    #inputAmount{
+        text-align: center;
+        width: 95%;
+        margin-top: 8%;
+    }
+    #inputRate{
+        text-align: center;
+        width: 95%;
+        margin-top: 8%;
+    }
+    #buttonSubmit{
+        
+        text-align: center;
+        margin: 25%;
+        margin-top: 12%;
+    }
+    </style>
 </head>
 
 <body>
-    <input type="number" placeholder="Enter Amount"/><br>
-    <input type="number" placeholder="Enter Interest">
+    <div id="MainDiv">
+    <input id="inputAmount" type="number" placeholder="Enter Amount"/><br>
+    <input id= "inputRate" type="number" placeholder="Enter Interest"><br>
+    <button id="buttonSubmit" type="submit" onclick="showData();" >Calculate</button>
+    </div>
 
 </body>
 
 </html>
+
+<script>
+
+function showData() {
+    console.log("clicked")
+}
+
+</script>
